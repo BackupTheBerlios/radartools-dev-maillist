@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Radartools-dev] RAT 0.19 updates
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/radartools-dev/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20RAT%200.19%20updates&In-Reply-To=%3Cd6a8b87d0709170542m730fc645m5e35612a781d460f%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000002.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Radartools-dev] RAT 0.19 updates</H1>
+    <B>Maxim Neumann</B> 
+    <A HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20RAT%200.19%20updates&In-Reply-To=%3Cd6a8b87d0709170542m730fc645m5e35612a781d460f%40mail.gmail.com%3E"
+       TITLE="[Radartools-dev] RAT 0.19 updates">maxn at cs.tu-berlin.de
+       </A><BR>
+    <I>Mon Sep 17 14:42:14 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000002.html">[Radartools-dev] RAT plugins
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi rat-developers,
+
+after some longer unplanned breaks I'm now finally back in the uni,
+and for restarting the work, I merged the 0.19er brunch into the
+trunk. And, actually, there was almost nothing to merge, since Anderl
+did already the whole job. But now everything is completely clean and
+ready for new modules.
+
+For Infos/Questions:
+- I added some functions into rat_install to modify the &quot;rat&quot; script
+in the rat directory to adjust it to the used directory. However,
+since the file &quot;rat&quot; will be different in all individual installations
+(mine, yours, etc.), it will force an update of the svn repository
+every time. Therefore I think, it is ok to remove it from the
+repository, since it will be generated automatically during
+rat_install (and only for the unix-platforms, so that windows users
+will not have it all). If you think, it's not ok like this or you have
+a better strategy, let me know, and we'll modify it.
+- Concerning PolInSAR, RAT seems to work fine and for the moment I
+don't have any ideas for improvements (except perhaps the coherence
+bias removal functions).
+- I want also to finish the bash--only interface, with the possibility
+to write rat-scripts, without any graphical outputs. For the moment it
+&quot;mostly&quot; works (only with some specific functions), but it needs some
+checks and some clean guidelines for writing new modules. And one
+tutorial and a reference are really necessary.
+- Else: in the near future I want to concentrate a bit more on my
+thesis and really to try not to start to add new functionality into
+rat. But let's see...
+
+Poka,
+Maxim
+
+On 8/29/07, Andreas Reigber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">anderl at fpk.tu-berlin.de</A>&gt; wrote:
+&gt;<i> Ok, as you might have recognised, the release 0.19 is out since monday. I just
+</I>&gt;<i> exchanged the release files, so everything should be fine now.
+</I>&gt;<i>
+</I>&gt;<i> The website has been updated, too. I also installed a new version of the
+</I>&gt;<i> counter (<A HREF="http://www.cv.tu-berlin.de/rat/bbclone">http://www.cv.tu-berlin.de/rat/bbclone</A>), which is able to track a
+</I>&gt;<i> bit more detailed the OS and browsers out there.
+</I>&gt;<i>
+</I>&gt;<i> Updating the trunk with the final 0.19 version should be no problem,
+</I>&gt;<i> (except &quot;about.pro&quot;). Couldn't we just copy all the files? I think a merge is
+</I>&gt;<i> not really necessary, since the is nothing to merge.
+</I>&gt;<i>
+</I>&gt;<i> Greetings,
+</I>&gt;<i> Anderl
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> ----------------------------------------------------------------
+</I>&gt;<i> Dr. Andreas Reigber           Berlin University of Technology
+</I>&gt;<i>                               Computer Vision and Remote Sensing
+</I>&gt;<i> Tel.: ++49-30-314-23276       Franklinstr. 28/29 (FR3-1)
+</I>&gt;<i> Fax.: ++49-30-314-21104       D-10587 Berlin, Germany
+</I>&gt;<i> ----------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Use encrypted email!                       My key ID: 0x279F93EB
+</I>&gt;<i> Fingerprint:   2B60 05A3 1D17 A873 D000 22BE D72C 65CA 279F 93EB
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Radartools-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">Radartools-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">https://lists.berlios.de/mailman/listinfo/radartools-dev</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000002.html">[Radartools-dev] RAT plugins
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/radartools-dev">More information about the Radartools-dev
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Radartools-dev] RRAT Changes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/radartools-dev/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20RRAT%20Changes&In-Reply-To=%3C7FE299E133F3104AA71E94D1850057891A4B5B%40APOGEESRV.ApogeeImaging.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000050.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Radartools-dev] RRAT Changes</H1>
+    <B>Tisham Dhar</B> 
+    <A HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20RRAT%20Changes&In-Reply-To=%3C7FE299E133F3104AA71E94D1850057891A4B5B%40APOGEESRV.ApogeeImaging.local%3E"
+       TITLE="[Radartools-dev] RRAT Changes">tisham at apogee.com.au
+       </A><BR>
+    <I>Thu Feb 21 01:26:28 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000050.html">[Radartools-dev] block mm
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#49">[ date ]</a>
+              <a href="thread.html#49">[ thread ]</a>
+              <a href="subject.html#49">[ subject ]</a>
+              <a href="author.html#49">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>The common in rrat will be my fault. I will refrain from tinkering
+commandline only modules.
+
+Regards,
+
+Tishampati Dhar
+
+ Remote Sensing Software Developer
+
+ APOGEE IMAGING INTERNATIONAL
+
+ Building 12B
+
+ 1 Adelaide - Lobethal Road 
+
+ Lobethal SA 5241 
+
+  Telephone: +61 - 8 - 8389 5499
+
+ Fax: +61 - 8 - 8389 5488
+
+ Mobile: +61 - 406114165
+
+Email: <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">tisham at apogee.com.au</A> mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">tisham at apogee.com.au</A>&gt;
+
+Web: www.apogee.com.au &lt;<A HREF="http://www.apogee.com.au">http://www.apogee.com.au</A>&gt; 
+
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+&quot;The information in this e-mail may be confidential and/or commercially
+privileged. It is intended solely for the addressee. Access to this
+e-mail by anyone else is unauthorised. If you are not the
+intendedrecipient, any disclosure, copying, distribution or action taken
+or omitted to be taken in reliance on it, is prohibited and may be
+unlawful.&quot;
+
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">radartools-dev-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">radartools-dev-bounces at lists.berlios.de</A>] On Behalf Of
+<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">radartools-dev-request at lists.berlios.de</A>
+Sent: Thursday, 21 February 2008 8:00 AM
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">radartools-dev at lists.berlios.de</A>
+Subject: Radartools-dev Digest, Vol 7, Issue 9[Scanned]
+
+Send Radartools-dev mailing list submissions to
+	<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">radartools-dev at lists.berlios.de</A>
+
+To subscribe or unsubscribe via the World Wide Web, visit
+	<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">https://lists.berlios.de/mailman/listinfo/radartools-dev</A>
+or, via email, send a message with subject or body 'help' to
+	<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">radartools-dev-request at lists.berlios.de</A>
+
+You can reach the person managing the list at
+	<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">radartools-dev-owner at lists.berlios.de</A>
+
+When replying, please edit your Subject line so it is more specific
+than &quot;Re: Contents of Radartools-dev digest...&quot;
+
+
+Today's Topics:
+
+   1. Changes in trunk (Andreas Reigber)
+   2. Re: Changes in trunk (Maxim Neumann)
+
+
+----------------------------------------------------------------------
+
+Message: 1
+Date: Tue, 19 Feb 2008 21:26:31 +0100
+From: Andreas Reigber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">reigber at nought.de</A>&gt;
+Subject: [Radartools-dev] Changes in trunk
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">radartools-dev at lists.berlios.de</A>
+Message-ID: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">200802192126.31764.reigber at nought.de</A>&gt;
+Content-Type: text/plain;  charset=&quot;us-ascii&quot;
+
+Hi,
+
+I was just scanning through the actual changes. I have some comments:
+
+- rrat.pro: Some common blocks were added. This is not a good idea,
+because 
+rrat should be used also outside of rat on the command line to open rat 
+files.
+
+- save_image.pro: Calling channel_defaults (which was added) forces the 
+default settings. Therefore it is not written to the pixmap what is seen
+on 
+the screen.
+
+- Tisham: I dont know how you do that, but it is impossible to make a
+diff 
+with files you modified. There is always the entire old file with -tag
+and 
+the new one with +tag. Something in the setting of your editor is odd.
+We 
+should try to find out what. Do you use windows?
+
+Based on the current status I'll prepare the 0.20 release. It will
+appear in 
+the svn soon. Then we should have a quick check if everything is o.k.
+and 
+release the whole stuff. The two points above I would prefer not to
+include 
+for the moment.
+
+Greetings &amp; keep hacking,
+Andreas
+
+
+------------------------------
+
+Message: 2
+Date: Tue, 19 Feb 2008 22:14:12 +0100
+From: &quot;Maxim Neumann&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">maxn at cs.tu-berlin.de</A>&gt;
+Subject: Re: [Radartools-dev] Changes in trunk
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">radartools-dev at lists.berlios.de</A>, &quot;Andreas Reigber&quot;
+	&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">reigber at nought.de</A>&gt;
+Message-ID:
+	&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">d6a8b87d0802191314g4155cc2t640fb7ae8303971f at mail.gmail.com</A>&gt;
+Content-Type: text/plain; charset=UTF-8
+
+Hi Andreas and All,
+
+the &quot;save_image.pro&quot; I take on my account. I added channel_defaults
+just a few days ago.
+My problem was in connection with a script, which used Rat to generate
+images of some rat files (or all in the directory), as well as of all
+sub-tracks inside an MB-data set. And without the channel_defaults it
+didn't update the channels when I used the extract-functions from the
+shell.
+Anyway, now I got the point, why it shouldn't be there. I'll remove it
+(if nobody did it already), and I'll find (later) another way to get
+my images without conflicts.
+
+Concerning rrat, i want to mention that I added the feature to check
+automatically for the &quot;.rat&quot; file endings. This is for the people who
+prefer to save the time to write this ending explicitly.
+
+Concerning the rat common block in rrat.pro: has to be removed, of
+course. Just wanted to mention than in the given style it contains an
+error source. With &quot;common rat, config&quot; one will not get the config
+structure, but the first structure of the common block &quot;rat&quot;, which is
+&quot;types&quot;. But it will be called &quot;config&quot; and will lead only to
+confusion. The best way to use common blocks, is e.g. just to write
+&quot;common rat&quot; without any other names, and one will automatically get
+all the structures as defined previously with their defined names.
+
+Regards,
+Maxim
+
+
+On Feb 19, 2008 9:26 PM, Andreas Reigber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">reigber at nought.de</A>&gt; wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I was just scanning through the actual changes. I have some comments:
+</I>&gt;<i>
+</I>&gt;<i> - rrat.pro: Some common blocks were added. This is not a good idea,
+</I>because
+&gt;<i> rrat should be used also outside of rat on the command line to open
+</I>rat
+&gt;<i> files.
+</I>&gt;<i>
+</I>&gt;<i> - save_image.pro: Calling channel_defaults (which was added) forces
+</I>the
+&gt;<i> default settings. Therefore it is not written to the pixmap what is
+</I>seen on
+&gt;<i> the screen.
+</I>&gt;<i>
+</I>&gt;<i> - Tisham: I dont know how you do that, but it is impossible to make a
+</I>diff
+&gt;<i> with files you modified. There is always the entire old file with -tag
+</I>and
+&gt;<i> the new one with +tag. Something in the setting of your editor is odd.
+</I>We
+&gt;<i> should try to find out what. Do you use windows?
+</I>&gt;<i>
+</I>&gt;<i> Based on the current status I'll prepare the 0.20 release. It will
+</I>appear in
+&gt;<i> the svn soon. Then we should have a quick check if everything is o.k.
+</I>and
+&gt;<i> release the whole stuff. The two points above I would prefer not to
+</I>include
+&gt;<i> for the moment.
+</I>&gt;<i>
+</I>&gt;<i> Greetings &amp; keep hacking,
+</I>&gt;<i> Andreas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Radartools-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">Radartools-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">https://lists.berlios.de/mailman/listinfo/radartools-dev</A>
+</I>&gt;<i>
+</I>
+
+------------------------------
+
+_______________________________________________
+Radartools-dev mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">Radartools-dev at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">https://lists.berlios.de/mailman/listinfo/radartools-dev</A>
+
+
+End of Radartools-dev Digest, Vol 7, Issue 9
+********************************************
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000050.html">[Radartools-dev] block mm
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#49">[ date ]</a>
+              <a href="thread.html#49">[ thread ]</a>
+              <a href="subject.html#49">[ subject ]</a>
+              <a href="author.html#49">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/radartools-dev">More information about the Radartools-dev
+mailing list</a><br>
+</body></html>

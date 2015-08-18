@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Radartools-dev] RAT plugins
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/radartools-dev/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20RAT%20plugins&In-Reply-To=%3Cd6a8b87d0709270331n77e95413xa5a7fe6a3dad7c46%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000005.html">
+   <LINK REL="Next"  HREF="000007.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Radartools-dev] RAT plugins</H1>
+    <B>Maxim Neumann</B> 
+    <A HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20RAT%20plugins&In-Reply-To=%3Cd6a8b87d0709270331n77e95413xa5a7fe6a3dad7c46%40mail.gmail.com%3E"
+       TITLE="[Radartools-dev] RAT plugins">maxn at cs.tu-berlin.de
+       </A><BR>
+    <I>Thu Sep 27 12:31:12 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000005.html">[Radartools-dev] RAT plugins
+</A></li>
+        <LI>Next message: <A HREF="000007.html">[Radartools-dev] RAT plugins
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>ok, i played a bit around and put some support for plugins  inside of
+rat. it was a nice change/relaxation after reading a lot of theory in
+the last few weeks.
+i already uploaded it, and also added two example plugins (which we
+can delete later, for the release). so, after an update you will see
+it working.
+In general:
+- plugins should be put into rat/plugins/ or .rat/plugins/ directories.
+- the name should be &quot;rat_plugin_{MYNAME}.sav&quot; or &quot;rat_plugin_{MYNAME}.pro&quot;
+- the included module(procedure) should be called &quot;rat_plugin_{MYNAME}&quot;
+- it should be able to return a parameter &quot;PLUGIN_INFO&quot;, which should
+have the structure: {menu_name:&quot;The name of the plugin as it should
+appear in the menues&quot;, menu_pos:[&quot;positions inside the menu&quot;,&quot;at the
+moment, only the menu-roots can be given, as sar, polsar,polinsar,
+etc.&quot;]
+- the menu_name-call will appear in all sub-menus, as specified in
+menu_pos. Additionally, all plugins will be available in &quot;General-&gt;All
+Plugins-&gt;&quot;. (For example, test-plugin will appear in &quot;polinsar-&gt;Extern
+plugins-&gt;&quot;, and the quote-plugin will appear in &quot;polinsar-&gt;Ext. pl-&gt;&quot;
+and in &quot;help-&gt;Ext. pl-&gt;&quot;. Both of them will appear in &quot;general-&gt;All
+plugins-&gt;..&quot;)
+- for the moment, to make it easier, I programed it so that the
+plugins menues appear at the top of the sub-menues. if there will be
+the need and the time, one can also describe the positions more
+precise.
+
+but just check it out, the description is more complicated than the
+actual usage.
+the plugin-file for quotes contains more info about plugin handling,
+which should later be transported to tex and the rat-guide.
+it's a proposal for this given task, and can be of course modified.
+
+On 9/26/07, Andreas Reigber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">anderl at fpk.tu-berlin.de</A>&gt; wrote:
+&gt;<i> usable. But didn't you mention that you won't develop a lot in the next
+</I>&gt;<i> time ;-)
+</I>I will try to let it be (for some time) the last time ;)
+
+&gt;<i> Something else: In my opinion we should make the developers list public, too.
+</I>&gt;<i> What do you think? In any case, if there are problems we can still go back to
+</I>&gt;<i> an internal one.
+</I>From my side, I see no problems with it. Why not. Perhaps the tone
+will become more formal..
+
+St&#233;phane, it sounds very good what you are doing!
+If you want to rewrite the core-code, perhaps you can try to make it
+hybrid? So that RAT can be used and modified as it is now, but also
+using OOP modules (*). So that you can include changes continuously,
+and everybody can continue to work on it, and slowly adapt.
+Else it will be also a lot of work (and bugs!) to rewrite everything at once.
+But I am especially waiting for the xml-parameter files!
+
+(*) I think, well defined objects for rat-modules, together with
+rat-graphics and rat-datahandling could make it really easy especially
+for new rat developers to contribute, which could help to extend the
+developers basis. but I am not sure, that it is that simple with idl.
+what I mean is oop in the sense of C++/Smalltalk, and as far as I
+looked inside, IDL is much less forthcoming (or not to say
+inappropriate). but now I'm not that sure that I understood you
+correctly, and I hope that you really meant Object Oriented
+Programming, and not Object Graphics?
+anyway, good luck!
+
+Maxim
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000005.html">[Radartools-dev] RAT plugins
+</A></li>
+	<LI>Next message: <A HREF="000007.html">[Radartools-dev] RAT plugins
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/radartools-dev">More information about the Radartools-dev
+mailing list</a><br>
+</body></html>

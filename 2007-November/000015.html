@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Radartools-dev] Metadata in RAT
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/radartools-dev/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20Metadata%20in%20RAT&In-Reply-To=%3Cd6a8b87d0711010426x2bb3e817u385ccefe3b467f87%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000014.html">
+   <LINK REL="Next"  HREF="000016.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Radartools-dev] Metadata in RAT</H1>
+    <B>Maxim Neumann</B> 
+    <A HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20Metadata%20in%20RAT&In-Reply-To=%3Cd6a8b87d0711010426x2bb3e817u385ccefe3b467f87%40mail.gmail.com%3E"
+       TITLE="[Radartools-dev] Metadata in RAT">maxn at cs.tu-berlin.de
+       </A><BR>
+    <I>Thu Nov  1 12:26:12 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000014.html">[Radartools-dev] COSAR Loader
+</A></li>
+        <LI>Next message: <A HREF="000016.html">[Radartools-dev] TerraSAR-X Metdata Parsing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear Tishampati Dhar,
+
+we have implemented some support for Metadata. But mostly with respect
+to multibaseline PolInSAR module, where it has been used to automatize
+some procedures, and save data specific information, which is
+ambiguous (like polarization state (ellipticity/orientation), # of
+baselines, # of polarizations, etc.). It has also been used for some
+parameter inversion procedures, which are not included into RAT up to
+now.
+
+I'll use this possibility to describe a bit the metadata handling in
+the following, and it should be better documented in the next release.
+
+The idea is simple: With the functions set_par() and get_par() [1] you
+should be able to set and to get one parameter. Of course, every time
+you use these functions, you should check the status code, either you
+really got the parameter you wanted, and either you could successfully
+set the parameter.
+Before being able to use some parameters, you have to define them in
+definitions.pro [2]. I.e.  you have only to add a definition line
+like:
+your_parameter_name: ptr_new()
+
+That's in general all a user or developer needs to know:
+1. define parameter in definitions.pro
+2. use it with set_par() and get_par()
+
+RAT takes care about everything else by itself: data types, handling,
+loading and reading during usual data load/save. It is understood,
+that the data types of these parameters should not be changed, i.e.
+setting it as a numerical value, one should not use it as a string,
+which does not make much sense.
+
+We have implemented basic frameworks to automatically import some
+parameters from ESAR and RAMSES configuration files [3]. Perhaps it
+can be of some use for your parameter import.
+
+For further information:
+Internally, the parameters are handled via a list of pointers, to
+provide flexibility. The parameters are saved in a specific format
+into the &quot;.rit&quot; files. To say is, since it is an individual format,
+there is probably only one person in the RAT team, who really
+understands it (although it is not complicated at all). Therefore,
+since some time there is an effort to change from Rita to XML. In the
+long term, this would be of course beneficial for RAT, to change to a
+standardized format, which can be read even by browsers. Personally, I
+don't know either IDL provides some interfaces for XML handling, but
+it should be quite straight forward. For users/developers this change
+should happen invisible, i.e. the interface to the parameters
+shouldn't change (same set_par(), get_par() functions).
+
+That's it, I believe. In summary, to use metadata, you have to define
+the parameters in definitions.pro (one line + some good comments), and
+to use set_par() to import it from e.g. TerraSAR config file, and then
+to use get_par() to use it inside your functions.
+
+I hope this can help you.
+
+Best regards,
+Maxim
+
+p.s.: for the moment there is only sparse support for dual-pol data
+(and I don't know, how sparse). But since it was planned from the
+beginning to support it, the interface is there. And given the general
+interest, it is probable that either in the next release, or in the
+one after, there will be full support for Dual-Pol data in all
+polarimetric modules (i.e. PolSAR, and PolInSAR).
+
+[1]
+status=set_par(name,value)
+<A HREF="http://svn.berlios.de/wsvn/radartools/trunk/io/set_par.pro?op=file&amp;rev=0&amp;sc=0">http://svn.berlios.de/wsvn/radartools/trunk/io/set_par.pro?op=file&amp;rev=0&amp;sc=0</A>
+status=get_par(name,value)
+<A HREF="http://svn.berlios.de/wsvn/radartools/trunk/io/get_par.pro?op=file&amp;rev=0&amp;sc=0">http://svn.berlios.de/wsvn/radartools/trunk/io/get_par.pro?op=file&amp;rev=0&amp;sc=0</A>
+[2]
+see the definition of parstruct at the bottom of
+<A HREF="http://svn.berlios.de/wsvn/radartools/trunk/definitions.pro?op=file&amp;rev=0&amp;sc=0">http://svn.berlios.de/wsvn/radartools/trunk/definitions.pro?op=file&amp;rev=0&amp;sc=0</A>
+For the moment it is centralized (i.e. everything in definitions.pro),
+but one can provide the possibility to define some additional
+parameters externally.
+[3]
+<A HREF="http://svn.berlios.de/wsvn/radartools/trunk/io/import_info_esar.pro?op=file&amp;rev=0&amp;sc=0">http://svn.berlios.de/wsvn/radartools/trunk/io/import_info_esar.pro?op=file&amp;rev=0&amp;sc=0</A>
+<A HREF="http://svn.berlios.de/wsvn/radartools/trunk/io/import_info_ramses.pro?op=file&amp;rev=0&amp;sc=0">http://svn.berlios.de/wsvn/radartools/trunk/io/import_info_ramses.pro?op=file&amp;rev=0&amp;sc=0</A>
+
+
+
+
+On 11/1/07, Tisham Dhar &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">tisham at apogee.com.au</A>&gt; wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> Metadata loading will be very very useful.ALOS CEOS and TerraSAR-X both
+</I>&gt;<i> have orbital metadata which can be supported and sent to slant-to-ground
+</I>&gt;<i> module internally. TerraSAR-X will require XML support which I am not
+</I>&gt;<i> familiar with in IDL. I will look into it anyway. RAT is a very good
+</I>&gt;<i> tool for polarimetry, some more interferometry and geometry/geography
+</I>&gt;<i> support will be good. Also visualization of dual-pol data and operations
+</I>&gt;<i> specific to it are of interest to me, that's what I mostly get.
+</I>&gt;<i>
+</I>&gt;<i> The COSAR loader has been tested with stripmap data I obtained, and
+</I>&gt;<i> works well. I have not obtained any scansar data, so not sure about
+</I>&gt;<i> that.
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i>
+</I>&gt;<i> Tishampati Dhar
+</I>&gt;<i>
+</I>&gt;<i>  Software Developer
+</I>&gt;<i>
+</I>&gt;<i>  APOGEE IMAGING INTERNATIONAL
+</I>&gt;<i>
+</I>&gt;<i>  Building 12B
+</I>&gt;<i>
+</I>&gt;<i>  1 Adelaide - Lobethal Road
+</I>&gt;<i>
+</I>&gt;<i>  Lobethal SA 5241
+</I>&gt;<i>
+</I>&gt;<i>   Telephone: +61 - 8 - 8389 5499
+</I>&gt;<i>
+</I>&gt;<i>  Fax: +61 - 8 - 8389 5488
+</I>&gt;<i>
+</I>&gt;<i>  Mobile: +61 - 406114165
+</I>&gt;<i>
+</I>&gt;<i> Email: <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">tisham at apogee.com.au</A> mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">tisham at apogee.com.au</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i> Web: www.apogee.com.au &lt;<A HREF="http://www.apogee.com.au">http://www.apogee.com.au</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i>  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</I>&gt;<i>
+</I>&gt;<i> &quot;The information in this e-mail may be confidential and/or commercially
+</I>&gt;<i> privileged. It is intended solely for the addressee. Access to this
+</I>&gt;<i> e-mail by anyone else is unauthorised. If you are not the
+</I>&gt;<i> intendedrecipient, any disclosure, copying, distribution or action taken
+</I>&gt;<i> or omitted to be taken in reliance on it, is prohibited and may be
+</I>&gt;<i> unlawful.&quot;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Radartools-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">Radartools-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">https://lists.berlios.de/mailman/listinfo/radartools-dev</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000014.html">[Radartools-dev] COSAR Loader
+</A></li>
+	<LI>Next message: <A HREF="000016.html">[Radartools-dev] TerraSAR-X Metdata Parsing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/radartools-dev">More information about the Radartools-dev
+mailing list</a><br>
+</body></html>

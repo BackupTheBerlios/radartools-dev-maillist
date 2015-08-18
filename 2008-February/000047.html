@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Radartools-dev] Changes in trunk
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/radartools-dev/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20Changes%20in%20trunk&In-Reply-To=%3Cd6a8b87d0802191314g4155cc2t640fb7ae8303971f%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000046.html">
+   <LINK REL="Next"  HREF="000048.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Radartools-dev] Changes in trunk</H1>
+    <B>Maxim Neumann</B> 
+    <A HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20Changes%20in%20trunk&In-Reply-To=%3Cd6a8b87d0802191314g4155cc2t640fb7ae8303971f%40mail.gmail.com%3E"
+       TITLE="[Radartools-dev] Changes in trunk">maxn at cs.tu-berlin.de
+       </A><BR>
+    <I>Tue Feb 19 22:14:12 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000046.html">[Radartools-dev] Changes in trunk
+</A></li>
+        <LI>Next message: <A HREF="000048.html">[Radartools-dev] block mm
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#47">[ date ]</a>
+              <a href="thread.html#47">[ thread ]</a>
+              <a href="subject.html#47">[ subject ]</a>
+              <a href="author.html#47">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Andreas and All,
+
+the &quot;save_image.pro&quot; I take on my account. I added channel_defaults
+just a few days ago.
+My problem was in connection with a script, which used Rat to generate
+images of some rat files (or all in the directory), as well as of all
+sub-tracks inside an MB-data set. And without the channel_defaults it
+didn't update the channels when I used the extract-functions from the
+shell.
+Anyway, now I got the point, why it shouldn't be there. I'll remove it
+(if nobody did it already), and I'll find (later) another way to get
+my images without conflicts.
+
+Concerning rrat, i want to mention that I added the feature to check
+automatically for the &quot;.rat&quot; file endings. This is for the people who
+prefer to save the time to write this ending explicitly.
+
+Concerning the rat common block in rrat.pro: has to be removed, of
+course. Just wanted to mention than in the given style it contains an
+error source. With &quot;common rat, config&quot; one will not get the config
+structure, but the first structure of the common block &quot;rat&quot;, which is
+&quot;types&quot;. But it will be called &quot;config&quot; and will lead only to
+confusion. The best way to use common blocks, is e.g. just to write
+&quot;common rat&quot; without any other names, and one will automatically get
+all the structures as defined previously with their defined names.
+
+Regards,
+Maxim
+
+
+On Feb 19, 2008 9:26 PM, Andreas Reigber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">reigber at nought.de</A>&gt; wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I was just scanning through the actual changes. I have some comments:
+</I>&gt;<i>
+</I>&gt;<i> - rrat.pro: Some common blocks were added. This is not a good idea, because
+</I>&gt;<i> rrat should be used also outside of rat on the command line to open rat
+</I>&gt;<i> files.
+</I>&gt;<i>
+</I>&gt;<i> - save_image.pro: Calling channel_defaults (which was added) forces the
+</I>&gt;<i> default settings. Therefore it is not written to the pixmap what is seen on
+</I>&gt;<i> the screen.
+</I>&gt;<i>
+</I>&gt;<i> - Tisham: I dont know how you do that, but it is impossible to make a diff
+</I>&gt;<i> with files you modified. There is always the entire old file with -tag and
+</I>&gt;<i> the new one with +tag. Something in the setting of your editor is odd. We
+</I>&gt;<i> should try to find out what. Do you use windows?
+</I>&gt;<i>
+</I>&gt;<i> Based on the current status I'll prepare the 0.20 release. It will appear in
+</I>&gt;<i> the svn soon. Then we should have a quick check if everything is o.k. and
+</I>&gt;<i> release the whole stuff. The two points above I would prefer not to include
+</I>&gt;<i> for the moment.
+</I>&gt;<i>
+</I>&gt;<i> Greetings &amp; keep hacking,
+</I>&gt;<i> Andreas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Radartools-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">Radartools-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">https://lists.berlios.de/mailman/listinfo/radartools-dev</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000046.html">[Radartools-dev] Changes in trunk
+</A></li>
+	<LI>Next message: <A HREF="000048.html">[Radartools-dev] block mm
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#47">[ date ]</a>
+              <a href="thread.html#47">[ thread ]</a>
+              <a href="subject.html#47">[ subject ]</a>
+              <a href="author.html#47">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/radartools-dev">More information about the Radartools-dev
+mailing list</a><br>
+</body></html>

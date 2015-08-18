@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Radartools-dev] Slant-To-Ground Range for TSX and	Phase-To-Height for TSX Insar
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/radartools-dev/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20Slant-To-Ground%20Range%20for%20TSX%20and%0A%09Phase-To-Height%20for%20TSX%20Insar&In-Reply-To=%3Cd6a8b87d0801040240q6cb86897v453744c3f3aae1f8%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000028.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Radartools-dev] Slant-To-Ground Range for TSX and	Phase-To-Height for TSX Insar</H1>
+    <B>Maxim Neumann</B> 
+    <A HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20Slant-To-Ground%20Range%20for%20TSX%20and%0A%09Phase-To-Height%20for%20TSX%20Insar&In-Reply-To=%3Cd6a8b87d0801040240q6cb86897v453744c3f3aae1f8%40mail.gmail.com%3E"
+       TITLE="[Radartools-dev] Slant-To-Ground Range for TSX and	Phase-To-Height for TSX Insar">maxn at cs.tu-berlin.de
+       </A><BR>
+    <I>Fri Jan  4 11:40:48 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000028.html">[Radartools-dev] RAT 0.20
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#27">[ date ]</a>
+              <a href="thread.html#27">[ thread ]</a>
+              <a href="subject.html#27">[ subject ]</a>
+              <a href="author.html#27">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Tisham,
+
+I looked at your code, which you checked in - it's nice work, and I
+especially liked the easiness of importing the meta data.
+To my knowledge, there wasn't much progress in the InSAR module for some
+time (except perhaps the brunch cut phase unwrapping), and your work would
+enhance it a lot. So, feel free to improve/extend it.
+Also, feel free to contact if you need to discuss implementation questions
+or anything else.
+
+Regards,
+Maxim
+
+
+
+On Dec 23, 2007 5:41 AM, &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">tisham at apogee.com.au</A>&gt; wrote:
+
+&gt;<i> Hi All,
+</I>&gt;<i>
+</I>&gt;<i> RAT has helped me produce my first TerraSAR-X interferogram and
+</I>&gt;<i> unwrapped phase. Now I need to use the Orbit information and imaging
+</I>&gt;<i> geometry to achieve slant-to-ground conversions and phase-to-height
+</I>&gt;<i> conversions. I am planning to use SRTM to seed the phase-height
+</I>&gt;<i> conversion if the orbital data is not sufficient. I was looking at the
+</I>&gt;<i> coefficient approximation method presented here:
+</I>&gt;<i> <A HREF="http://www.geo.unizh.ch/rsl/fringe96/papers/ferretti-et-al/">http://www.geo.unizh.ch/rsl/fringe96/papers/ferretti-et-al/</A>
+</I>&gt;<i>
+</I>&gt;<i> It will be nice to have it all implemented in RAT. This may be a
+</I>&gt;<i> redundant question but I would like a concrete task assigned to me for
+</I>&gt;<i> parsing TSX metadata from XML and saving it attached to the RAT file
+</I>&gt;<i> and possibly a Space-Borne case in the INSAR menu to deal with
+</I>&gt;<i> baseline estimation and phase-height conversions.
+</I>&gt;<i>
+</I>&gt;<i> Have a Merry Christmas and a Happy New Year.
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i>
+</I>&gt;<i> Tisham.
+</I>&gt;<i>
+</I>&gt;<i> ----------------------------------------------------------------
+</I>&gt;<i> This message was sent using IMP, the Internet Messaging Program.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Radartools-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">Radartools-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">https://lists.berlios.de/mailman/listinfo/radartools-dev</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/radartools-dev/attachments/20080104/0aa2bbcb/attachment.html">https://lists.berlios.de/pipermail/radartools-dev/attachments/20080104/0aa2bbcb/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000028.html">[Radartools-dev] RAT 0.20
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#27">[ date ]</a>
+              <a href="thread.html#27">[ thread ]</a>
+              <a href="subject.html#27">[ subject ]</a>
+              <a href="author.html#27">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/radartools-dev">More information about the Radartools-dev
+mailing list</a><br>
+</body></html>

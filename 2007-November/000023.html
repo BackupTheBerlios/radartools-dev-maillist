@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Radartools-dev] Proposal: start of rat already at &quot;.r rat&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/radartools-dev/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20Proposal%3A%20start%20of%20rat%20already%20at%20%22.r%20rat%22&In-Reply-To=%3Cd6a8b87d0711300310i53ed0c8drb2d69d6a523a3945%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000022.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Radartools-dev] Proposal: start of rat already at &quot;.r rat&quot;</H1>
+    <B>Maxim Neumann</B> 
+    <A HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20Proposal%3A%20start%20of%20rat%20already%20at%20%22.r%20rat%22&In-Reply-To=%3Cd6a8b87d0711300310i53ed0c8drb2d69d6a523a3945%40mail.gmail.com%3E"
+       TITLE="[Radartools-dev] Proposal: start of rat already at &quot;.r rat&quot;">maxn at cs.tu-berlin.de
+       </A><BR>
+    <I>Fri Nov 30 12:10:37 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000022.html">[Radartools-dev] New Release
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#23">[ date ]</a>
+              <a href="thread.html#23">[ thread ]</a>
+              <a href="subject.html#23">[ subject ]</a>
+              <a href="author.html#23">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+how is it if we include a small $main$ program at the end of rat.pro
+(the last two lines in the now-checked-in version), so that whenever
+one uses
+&quot;.r rat&quot; or &quot;.run rat&quot;,
+the program gets compiled and started automatically.
+That is, one wouldn't need anymore to type explicitly &quot;rat&quot; in the
+shell to run Rat.
+If one wants only to compile everything, one can use &quot;.compile rat&quot;.
+With this we would use .run and .compile as initially intended by IDL,
+to &quot;compile and run&quot;, and to &quot;compile&quot; only.
+I can see the rightful criticism, since it is against the habits.
+On the other hand, if one gets used to it, in the long run one can
+save a lot of explicit calls of rat.
+
+Greetings,
+Maxim
+
+p.s.: one will need to modify the rat-script by changing &quot;.r rat&quot; to
+&quot;.compile rat&quot; (it will happen automatically during a rat_install)
+p.p.s.: it's not like I need this feature, it's just an idea, and we
+can switch back, if it's unpractical
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000022.html">[Radartools-dev] New Release
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#23">[ date ]</a>
+              <a href="thread.html#23">[ thread ]</a>
+              <a href="subject.html#23">[ subject ]</a>
+              <a href="author.html#23">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/radartools-dev">More information about the Radartools-dev
+mailing list</a><br>
+</body></html>

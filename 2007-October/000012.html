@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Radartools-dev] Slant to Ground Range Conversion - TSX
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/radartools-dev/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20Slant%20to%20Ground%20Range%20Conversion%20-%20TSX&In-Reply-To=%3C7FE299E133F3104AA71E94D1850057891A4A96%40APOGEESRV.ApogeeImaging.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000011.html">
+   <LINK REL="Next"  HREF="000013.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Radartools-dev] Slant to Ground Range Conversion - TSX</H1>
+    <B>Tisham Dhar</B> 
+    <A HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20Slant%20to%20Ground%20Range%20Conversion%20-%20TSX&In-Reply-To=%3C7FE299E133F3104AA71E94D1850057891A4A96%40APOGEESRV.ApogeeImaging.local%3E"
+       TITLE="[Radartools-dev] Slant to Ground Range Conversion - TSX">tisham at apogee.com.au
+       </A><BR>
+    <I>Wed Oct 31 04:37:09 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000011.html">[Radartools-dev] TerraSAR-X COSAR Format Reader
+</A></li>
+        <LI>Next message: <A HREF="000013.html">[Radartools-dev] Slant to Ground Range Conversion - TSX
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All,
+
+I am performing an approximate slant to ground range conversion for
+TerraSAR-X.
+I have the following information:
+  &lt;timeUTC&gt;2007-10-14T20:01:06.000000&lt;/timeUTC&gt; 
+  &lt;timeGPS&gt;876427280&lt;/timeGPS&gt; 
+  &lt;timeGPSFraction&gt;0.00000000000000000E+00&lt;/timeGPSFraction&gt; 
+  &lt;posX&gt;-4.79613060539230611E+06&lt;/posX&gt; 
+  &lt;posY&gt;3.35056793946905946E+06&lt;/posY&gt; 
+  &lt;posZ&gt;-3.64513584552371502E+06&lt;/posZ&gt; 
+  &lt;velX&gt;4.16184199999999964E+03&lt;/velX&gt; 
+  &lt;velY&gt;-9.71341000000000008E+02&lt;/velY&gt; 
+  &lt;velZ&gt;-6.37853799999999956E+03&lt;/velZ&gt; 
+
+I also have:
+
+The XYZ state vector gives platform altitude of approximately
+514998.79542876687 metres
+ &lt;sceneCornerCoord&gt;
+  &lt;refRow&gt;16976&lt;/refRow&gt; 
+  &lt;refColumn&gt;1&lt;/refColumn&gt; 
+  &lt;lat&gt;-3.45304044754135049E+01&lt;/lat&gt; 
+  &lt;lon&gt;1.39608480715591355E+02&lt;/lon&gt; 
+  &lt;azimuthTimeUTC&gt;2007-10-14T20:01:59.341666Z&lt;/azimuthTimeUTC&gt; 
+  &lt;rangeTime&gt;4.59469535280788641E-03&lt;/rangeTime&gt; 
+  &lt;incidenceAngle&gt;4.26374744241752950E+01&lt;/incidenceAngle&gt; 
+  &lt;/sceneCornerCoord&gt;
+
+Using the incidence angle the min. range distance is 474187.696012
+metres
+
+The slant range pixel spacing is 0.9
+  
+  &lt;complexImageInfo beamID=&quot;stripFar_013&quot;&gt;
+  &lt;commonPRF&gt;2.42509992937853121E+03&lt;/commonPRF&gt; 
+  &lt;commonRSF&gt;1.64829192000000000E+08&lt;/commonRSF&gt; 
+  &lt;slantRangeResolution&gt;1.00000000000000000E+00&lt;/slantRangeResolution&gt; 
+ 
+&lt;projectedSpacingAzimuth&gt;2.93350791931152344E+00&lt;/projectedSpacingAzimut
+h&gt; 
+- &lt;projectedSpacingRange&gt;
+  &lt;groundNear&gt;1.34215140342712402E+00&lt;/groundNear&gt; 
+  &lt;groundFar&gt;1.31274962425231934E+00&lt;/groundFar&gt; 
+  &lt;slantRange&gt;9.09403383731842041E-01&lt;/slantRange&gt; 
+  &lt;/projectedSpacingRange&gt;
+  &lt;imageCoordinateType&gt;ZERODOPPLER&lt;/imageCoordinateType&gt; 
+  &lt;imageDataStartWith&gt;EARLYAZNEARRG&lt;/imageDataStartWith&gt; 
+  &lt;quicklookDataStartWith&gt;EARLYAZFARRG&lt;/quicklookDataStartWith&gt; 
+  &lt;/complexImageInfo&gt;   
+
+I get array cannot be of size zero when trying to run the transform with
+the given parameters. It will be nice to have slant-to-ground support
+automatic for TSX in RAT. I will try and debug it and add support for
+metadata parsing.
+
+The COSAR Loader is given below:
+;-----------------------------------------------------------------------
+-
+; RAT - Radar Tools
+;-----------------------------------------------------------------------
+-
+; RAT Module: open_cosar
+; written by : Tishampati Dhar (Apogee) 
+; last revision : 31st . October 2007 
+; Open files in DLR-COSAR format 
+;--------------------------------------
+;-----------------------------------------------------------------------
+-
+; The contents of this file are subject to the Mozilla Public License
+; Version 1.1 (the &quot;License&quot;); you may not use this file except in
+; compliance with the License. You may obtain a copy of the License at
+; <A HREF="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</A>
+;
+; Software distributed under the License is distributed on an &quot;AS IS&quot;
+; basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See
+the
+; License for the specific language governing rights and limitations
+; under the License.
+;
+; The Initial Developer of the Original Code is the RAT development
+team.
+; All Rights Reserved.
+;-----------------------------------------------------------------------
+-
+pro open_cosar,INPUTFILE = inputfile
+	common rat, types, file, wid, config
+    common channel, channel_names, channel_selec, color_flag, palettes,
+pnames
+
+	if not keyword_set(inputfile) then begin    ; GUI for file
+selection
+		path = config.workdir
+		inputfile = cw_rat_dialog_pickfile(TITLE='Open
+TerraSAR-X file', $
+		DIALOG_PARENT=wid.base, FILTER = '*.cos', /MUST_EXIST,
+PATH=path, GET_PATH=path)
+		if strlen(inputfile) gt 0 then config.workdir = path
+	endif
+
+	if strlen(inputfile) gt 0 then begin
+
+; change mousepointer
+
+		WIDGET_CONTROL,/hourglass                ; switch mouse
+cursor
+
+; undo function
+
+		undo_prepare,outputfile,finalfile,CALLED=CALLED
+		open_rit,/EMPTY ; no parameters are set: delete the odl
+ones!
+
+; converting format to RAT
+
+		nrx  = 0l
+		nry  = 0l
+		openr,ddd,inputfile,/get_lun,/swap_if_little_endian
+; open input file
+		datasize = lonarr(7)
+		readu,ddd,datasize
+;read header CSAR
+		print,string(datasize)
+		nrx = datasize[2]                         ; reading
+range size
+		nry = datasize[3]                         ; reading
+azimuth size
+		rtnb = datasize[5]
+; reading total number of bytes in rangeline
+
+		ident = bytarr(8)
+;reading file identifier
+		readu,ddd,ident
+		print,string(ident)
+
+		anzx = nrx
+		anzy = nry
+
+		;Set file pointer to end of burst annotation line blocks
+		filler = lonarr(2)
+		point_lun,ddd,rtnb
+		;Read Azimuth Relative Indices
+		asri = lonarr(anzx)
+		readu,ddd,filler
+		readu,ddd,asri
+		;Read Azimuth First Valids
+		asfv = lonarr(anzx)
+		readu,ddd,filler
+		readu,ddd,asfv
+		;Read Azimuth Last Valids
+		aslv = lonarr(anzx)
+		readu,ddd,filler
+		readu,ddd,aslv
+
+
+		srat,outputfile,eee,header=[2l,nrx,nry,6l],type=101l
+; write RAT file header
+
+		bs_y  = config.blocksize                 ; get standard
+RAT blocksize
+		block = intarr(anzx*2+4,bs_y)            ; define block
+		nr_y  = anzy  /  bs_y                    ; calc nr. of
+blocks
+		re_y  = anzy mod bs_y                    ; calc size of
+last block
+
+		progress,message='Reading TerraSAR-X Cosar file...'
+
+		for i=0,nr_y-1 do begin                  ; read and
+write blocks
+			progress,percent=((i+1)*100)/nr_y     ; display
+progress bar
+			readu,ddd,block
+			;drop RSFV and RSLV
+			subblock = block[4:anzx*2+3,*]
+			refblock = reform(subblock,2,anzx,bs_y)
+			;convert to complex
+			complexblock = complexarr(anzx,bs_y)
+			complexblock =
+complex(reform(refblock[0,*,*]),reform(refblock[1,*,*]))
+			writeu,eee,complexblock
+		endfor
+
+		if re_y gt 0 then begin                  ; read and
+write last block
+			block = intarr(anzx*2+4,re_y)
+			readu,ddd,block
+			;drop RSFV and RSLV
+			subblock = block[4:anzx*2+3,*]
+			refblock = reform(subblock,2,anzx,re_y)
+			;convert to complex
+			complexblock = complexarr(anzx,re_y)
+			complexblock =
+complex(reform(refblock[0,*,*]),reform(refblock[1,*,*]))
+			writeu,eee,complexblock
+		endif
+		free_lun,ddd,eee                         ; close all
+files
+
+; set internal variables of RAT
+
+		file_move,outputfile,finalfile,/overwrite
+		file.name = finalfile
+		file.info = 'TerraSAR-X COSAR'           ; Put here a
+string describing your data
+		file.type = 101l                         ; data type
+(101 = single channel complex)
+		file.dim  = 2l                           ; single
+channel data (two-dimensional array)
+		file.xdim = nrx                          ; range image
+size
+		file.ydim = nry                          ; azimuth image
+size
+		file.zdim = 1l                           ; nr. of layers
+(set to 1 if not needed)
+		file.vdim = 1l                           ; nr. of layers
+of layers (set to 1 if not needed)
+		file.var  = 6l                           ; IDL variable
+type (6 = complex, 4 = floating point)
+
+; update file generation history (evolution)
+
+		evolute,'Import SAR data from TerraSAR-X.'
+
+; reset palette information
+
+		palettes[0,*,*] = palettes[2,*,*] ; set variable palette
+to b/w linear
+		palettes[1,*,*] = palettes[2,*,*] ; set variable palette
+to b/w linear
+
+; generate preview
+
+		file.window_name = 'Untitled.rat'
+		generate_preview
+		update_info_box
+
+	endif
+end
+
+
+
+Tishampati Dhar
+
+ Software Developer
+
+ APOGEE IMAGING INTERNATIONAL
+
+ Building 12B
+
+ 1 Adelaide - Lobethal Road 
+
+ Lobethal SA 5241 
+
+  Telephone: +61 - 8 - 8389 5499
+
+ Fax: +61 - 8 - 8389 5488
+
+ Mobile: +61 - 406114165
+
+Email: <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">tisham at apogee.com.au</A> mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">tisham at apogee.com.au</A>&gt;
+
+Web: www.apogee.com.au &lt;<A HREF="http://www.apogee.com.au">http://www.apogee.com.au</A>&gt; 
+
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+&quot;The information in this e-mail may be confidential and/or commercially
+privileged. It is intended solely for the addressee. Access to this
+e-mail by anyone else is unauthorised. If you are not the
+intendedrecipient, any disclosure, copying, distribution or action taken
+or omitted to be taken in reliance on it, is prohibited and may be
+unlawful.&quot;
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000011.html">[Radartools-dev] TerraSAR-X COSAR Format Reader
+</A></li>
+	<LI>Next message: <A HREF="000013.html">[Radartools-dev] Slant to Ground Range Conversion - TSX
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/radartools-dev">More information about the Radartools-dev
+mailing list</a><br>
+</body></html>

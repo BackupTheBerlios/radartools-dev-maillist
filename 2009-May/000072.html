@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Radartools-dev] RAT in batch mode
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/radartools-dev/2009-May/index.html" >
+   <LINK REL="made" HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20RAT%20in%20batch%20mode&In-Reply-To=%3Cd6a8b87d0905130257r28d9dc36xafaeeef02b800014%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000071.html">
+   <LINK REL="Next"  HREF="000073.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Radartools-dev] RAT in batch mode</H1>
+    <B>Maxim Neumann</B> 
+    <A HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20RAT%20in%20batch%20mode&In-Reply-To=%3Cd6a8b87d0905130257r28d9dc36xafaeeef02b800014%40mail.gmail.com%3E"
+       TITLE="[Radartools-dev] RAT in batch mode">maxn at cs.tu-berlin.de
+       </A><BR>
+    <I>Wed May 13 11:57:36 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000071.html">[Radartools-dev] RAT in batch mode
+</A></li>
+        <LI>Next message: <A HREF="000073.html">[Radartools-dev] RAT in batch mode
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#72">[ date ]</a>
+              <a href="thread.html#72">[ thread ]</a>
+              <a href="subject.html#72">[ subject ]</a>
+              <a href="author.html#72">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Andreas,
+
+the implementation of the rat batch mode was mere a fast hack, in order to
+be able to use some scripts. It only hides the GUI, and disables some
+preview functions for the data (which saves a lot of time on some lame
+computers, like mine). But the whole GUI is still generated (and needs X),
+and one can always show it with the command &quot;show_gui&quot; (or something
+similar).
+
+In order to provide a real batch-mode requires some more work. I think, it
+shouldn't be too complicated, but one needs then to thoroughly separate the
+gui and visual functions from other functionality (in some functions it's
+too much interconnected).
+
+Regards,
+Maxim
+
+
+
+On Wed, May 13, 2009 at 11:14 AM, Andreas Reigber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">andreas.reigber at dlr.de</A>&gt;wrote:
+
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I encountered a small prinicipal problem when using RAT in batch mode: Even
+</I>&gt;<i> when starting it with the /nw keyword, i.e. without main window, RAT seems
+</I>&gt;<i> to
+</I>&gt;<i> require a valid X-conncection (on Linux, no clue on Windows).
+</I>&gt;<i>
+</I>&gt;<i> Therefore, I cannot use RAT within a batch process, which are (in my case)
+</I>&gt;<i> automatically distributed to some idle machines in our computing
+</I>&gt;<i> environment.
+</I>&gt;<i> But I am pretty sure that the same problem occurs when starting a script
+</I>&gt;<i> with
+</I>&gt;<i> nohup an logging out after...
+</I>&gt;<i>
+</I>&gt;<i> Any idea how to solve that or what is causing this? I unluckily don't get
+</I>&gt;<i> any
+</I>&gt;<i> error message because I use RAT through the IDL-IDL bridge...
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Andreas
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> --------------------------------------
+</I>&gt;<i> Dr. Andreas Reigber
+</I>&gt;<i> Microwaves and Radar Institute
+</I>&gt;<i> German Aerospace Center (DLR)
+</I>&gt;<i> Tel.: ++49-815328-2360
+</I>&gt;<i> URL:  <A HREF="http://www.dlr.de/hr">http://www.dlr.de/hr</A>
+</I>&gt;<i> --------------------------------------
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Radartools-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">Radartools-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">https://lists.berlios.de/mailman/listinfo/radartools-dev</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/radartools-dev/attachments/20090513/757e11d2/attachment.html">https://lists.berlios.de/pipermail/radartools-dev/attachments/20090513/757e11d2/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000071.html">[Radartools-dev] RAT in batch mode
+</A></li>
+	<LI>Next message: <A HREF="000073.html">[Radartools-dev] RAT in batch mode
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#72">[ date ]</a>
+              <a href="thread.html#72">[ thread ]</a>
+              <a href="subject.html#72">[ subject ]</a>
+              <a href="author.html#72">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/radartools-dev">More information about the Radartools-dev
+mailing list</a><br>
+</body></html>

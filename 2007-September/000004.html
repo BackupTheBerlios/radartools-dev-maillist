@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Radartools-dev] RAT plugins
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/radartools-dev/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20RAT%20plugins&In-Reply-To=%3C46FA2CB0.9060001%40work.stephane-guillaso.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000003.html">
+   <LINK REL="Next"  HREF="000005.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Radartools-dev] RAT plugins</H1>
+    <B>St&#233;phane Guillaso</B> 
+    <A HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20RAT%20plugins&In-Reply-To=%3C46FA2CB0.9060001%40work.stephane-guillaso.fr%3E"
+       TITLE="[Radartools-dev] RAT plugins">contact at work.stephane-guillaso.fr
+       </A><BR>
+    <I>Wed Sep 26 11:56:00 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000003.html">[Radartools-dev] RAT plugins
+</A></li>
+        <LI>Next message: <A HREF="000005.html">[Radartools-dev] RAT plugins
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Salut &#224; tous,
+
+I just use this opportunity about the idea to RAT plugins thread to 
+propose you an new RAT concept.
+I've just written a prototype for what I call RAT2 (only some part are 
+missing) with new RAT architecture.
+For the moment, only the graphical interface is displayed, I have to 
+write the rest, especially how to display an image.
+I will propose you, in the future, this idea (I will put all information 
+about a hidden web page) because I do not want for the moment
+to disturb the berlios website. If you agree, we can maybe start a new 
+branch (I assume it will take a while before we will be able to rewrite 
+all routines)
+
+Let me tell some improvement :
+- object oriented programming. Don't worry, It is really simple, I 
+manage to do it. I really think now that programming with object 
+simplify programmation.
+- you can adjust the size of the main window in real time (using the mouse).
+- use of xml parameter file, rit file, menu file, ...
+
+In my opinion, this will simplify to add new routines, and or module.
+
+I will not rewrite for the moment all routines (lol), only few of them 
+to show you the potential.
+I just hope I will find time to do it (;))
+
+Let's wait until I will put the release and let discuss about that.
+
+@+
+St&#233;phane
+
+Maxim Neumann a &#233;crit :
+&gt;<i> Hello,
+</I>&gt;<i> at the first glance it looks like it should be easy to do.
+</I>&gt;<i>
+</I>&gt;<i> Probably it' s nothing special, but these are just a few points of
+</I>&gt;<i> which I would think:
+</I>&gt;<i> - good definition of plugin modules: i.e. the plugin procedure should
+</I>&gt;<i> accept all the parameters (at least as phantoms) of usual modules,
+</I>&gt;<i> like: /CALLED, /NO_GUI, /ARGUMENTS_STRUCTURE, ..., or something
+</I>&gt;<i> similar. we need to define the common set of arguments, which should
+</I>&gt;<i> be accepted by all modules.
+</I>&gt;<i> - as well as a plugin-specific unnamed structure like
+</I>&gt;<i> PLUGIN_INFO={menu_name=&quot;IDIOT&quot;, menu_position=&quot;insar...&quot;,...} , where
+</I>&gt;<i> menu_position could be an array of positions.
+</I>&gt;<i> - file name and location: e.g. in &quot;rat/plugins/&quot; and in
+</I>&gt;<i> &quot;~/.rat/plugins&quot; , and rat could check this path automatically to load
+</I>&gt;<i> all procedures which are named like e.g. [&quot;rat_plugin_*.sav&quot;,
+</I>&gt;<i> &quot;rat_plugin_*.pro&quot;]. The IDL name of the module function should then
+</I>&gt;<i> also be the same as the file name without the suffix &quot;.pro&quot; or &quot;.sav&quot;.
+</I>&gt;<i> - everything else is only a technical problem of realization.
+</I>&gt;<i> I would suggest to append the plugin modules at first at all
+</I>&gt;<i> menu_positions as provided by the functions, as well as e.g. in the
+</I>&gt;<i> menu &quot;genera/plugins/&quot;, for the case that it was not possible to
+</I>&gt;<i> append it correctly to menu_position.
+</I>&gt;<i> Before constructing the RAT GUI, one has to check the plugin
+</I>&gt;<i> directories for the modules, then adjust the menus, and then to
+</I>&gt;<i> provide some framework to call these plugins.
+</I>&gt;<i> That's almost all, or did I forget something?
+</I>&gt;<i>
+</I>&gt;<i> It looks like an interesting task, I can perhaps also try to construct
+</I>&gt;<i> something workable in the next days.
+</I>&gt;<i> It's of course against the culture of RAT, but it would be nice to
+</I>&gt;<i> have some definitions for module arguments, etc.
+</I>&gt;<i>
+</I>&gt;<i> Tsch&#252;ss,
+</I>&gt;<i> Maxim
+</I>&gt;<i>
+</I>&gt;<i> On 9/25/07, Andreas Reigber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">anderl at fpk.tu-berlin.de</A>&gt; wrote:
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I hope to find some more time to work on RAT in the next months. One idea I
+</I>&gt;&gt;<i> have is to try to develop some kind of binary plugin interface. I want to get
+</I>&gt;&gt;<i> the possibility to write sav-files, which get found by RAT during startup and
+</I>&gt;&gt;<i> which can then be called somehow through the menue. I don't know yet whether
+</I>&gt;&gt;<i> this is possible with IDL, but I'll check that out. Background is the
+</I>&gt;&gt;<i> possibility of closed-source add-ons, like for example integrating IDIOT in
+</I>&gt;&gt;<i> RAT as an additional module.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Comments and suggestions welcome!
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Greetings,
+</I>&gt;&gt;<i> Anderl
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> --
+</I>&gt;&gt;<i> ----------------------------------------------------------------
+</I>&gt;&gt;<i> Dr. Andreas Reigber           Berlin University of Technology
+</I>&gt;&gt;<i>                               Computer Vision and Remote Sensing
+</I>&gt;&gt;<i> Tel.: ++49-30-314-23276       Franklinstr. 28/29 (FR3-1)
+</I>&gt;&gt;<i> Fax.: ++49-30-314-21104       D-10587 Berlin, Germany
+</I>&gt;&gt;<i> ----------------------------------------------------------------
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Use encrypted email!                       My key ID: 0x279F93EB
+</I>&gt;&gt;<i> Fingerprint:   2B60 05A3 1D17 A873 D000 22BE D72C 65CA 279F 93EB
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Radartools-dev mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">Radartools-dev at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">https://lists.berlios.de/mailman/listinfo/radartools-dev</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Radartools-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">Radartools-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">https://lists.berlios.de/mailman/listinfo/radartools-dev</A>
+</I>&gt;<i>   
+</I>
+
+-- 
+Dr. St&#233;phane Guillaso
+Laboratoire de G&#233;ologie
+Ecole Normale Sup&#233;rieure
+24 Rue Lhomond
+75231 Paris Cedex 05
+France
+
+Phone: +33 1 44 32 22 55
+Fax: +33 1 44 32 22 00
+
+Email: <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">guillaso at geologie.ens.fr</A>
+Email: <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">contact at work.stephane-guillaso.fr</A>
+Web: <A HREF="http://work.stephane-guillaso.fr">http://work.stephane-guillaso.fr</A>
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000003.html">[Radartools-dev] RAT plugins
+</A></li>
+	<LI>Next message: <A HREF="000005.html">[Radartools-dev] RAT plugins
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/radartools-dev">More information about the Radartools-dev
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Radartools-dev] Compiling error at start
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/radartools-dev/2009-March/index.html" >
+   <LINK REL="made" HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20Compiling%20error%20at%20start&In-Reply-To=%3Cd6a8b87d0903200119o41c1d3e3lfb44deaf769f016%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000066.html">
+   <LINK REL="Next"  HREF="000068.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Radartools-dev] Compiling error at start</H1>
+    <B>Maxim Neumann</B> 
+    <A HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20Compiling%20error%20at%20start&In-Reply-To=%3Cd6a8b87d0903200119o41c1d3e3lfb44deaf769f016%40mail.gmail.com%3E"
+       TITLE="[Radartools-dev] Compiling error at start">maxn at cs.tu-berlin.de
+       </A><BR>
+    <I>Fri Mar 20 09:19:59 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000066.html">[Radartools-dev] Coding guidelines
+</A></li>
+        <LI>Next message: <A HREF="000068.html">[Radartools-dev] Compiling error at start
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#67">[ date ]</a>
+              <a href="thread.html#67">[ thread ]</a>
+              <a href="subject.html#67">[ subject ]</a>
+              <a href="author.html#67">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+recently I started to work again a bit on RAT and encountered a small
+problem. I could not compile RAT. After some search, it turned out that the
+reason lies in the few new lines in rat.pro:
+print,&quot;FATAL ERROR: this was completely the wrong way of starting RAT!!!&quot;
+print,&quot;please try to follow just a bit the instructions given on the
+website...&quot;
+exit
+If I comment them out, everything is ok. But if I leave it, and do for
+instance
+$ .r rat
+then I get a bunch of errors.
+Perhaps I miss something, but for me it doesn't work (IDL v 6.3, Debian).
+For now, I commented these lines out, but if you know what I can do about
+it, so that it works, please let me know.
+
+Regards,
+Maxim
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/radartools-dev/attachments/20090320/bc5b69d1/attachment.html">https://lists.berlios.de/pipermail/radartools-dev/attachments/20090320/bc5b69d1/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000066.html">[Radartools-dev] Coding guidelines
+</A></li>
+	<LI>Next message: <A HREF="000068.html">[Radartools-dev] Compiling error at start
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#67">[ date ]</a>
+              <a href="thread.html#67">[ thread ]</a>
+              <a href="subject.html#67">[ subject ]</a>
+              <a href="author.html#67">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/radartools-dev">More information about the Radartools-dev
+mailing list</a><br>
+</body></html>

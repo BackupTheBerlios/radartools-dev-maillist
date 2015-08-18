@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Radartools-dev] Layer based data management
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/radartools-dev/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20Layer%20based%20data%20management&In-Reply-To=%3C200802142138.57358.reigber%40nought.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000042.html">
+   <LINK REL="Next"  HREF="000045.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Radartools-dev] Layer based data management</H1>
+    <B>Andreas Reigber</B> 
+    <A HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20Layer%20based%20data%20management&In-Reply-To=%3C200802142138.57358.reigber%40nought.de%3E"
+       TITLE="[Radartools-dev] Layer based data management">reigber at nought.de
+       </A><BR>
+    <I>Thu Feb 14 21:38:57 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000042.html">[Radartools-dev] Layer based data management
+</A></li>
+        <LI>Next message: <A HREF="000045.html">[Radartools-dev] Multi-Temporal with relative paths
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#44">[ date ]</a>
+              <a href="thread.html#44">[ thread ]</a>
+              <a href="subject.html#44">[ subject ]</a>
+              <a href="author.html#44">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>We should start a discussion on these points!
+
+The data managment stuff might be indeed a good way to implement multiple file 
+handling. Originally it was written to simplify the jumping between many 
+different results/decompositions/etc. of a single data set. But why not using 
+it in a similar way for multi-files? I think it should be possible to do 
+this. Maybe we should ask Stephane if he is interested in helping a bit here 
+(he implemented the data handling)?
+
+An auxiliary RAT file is already existing, the *.rit files you see. They are a 
+possible place to store geographic information. Exporting to a common format 
+would be of course necessary, too (ENVI .hdr might be a good choice).
+
+&gt;<i>There also does not seem to be a datatype associated with Multi-Temporal sets 
+</I>&gt;<i>in the Edit header section.
+</I>
+No, because each file keeps his orignial type when using multifiles. This was 
+the easier solution, otherwise you might need a multifile version for many 
+different types (think about polarimetric multifiles, etc.)
+
+&gt;<i> Andreas is the student you mentioned on the list and
+</I>&gt;<i> available/interested in working further ?
+</I>
+No, he finished quite a while ago and is not with me anymore. We're on our 
+own!
+
+Cheers,
+Andreas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000042.html">[Radartools-dev] Layer based data management
+</A></li>
+	<LI>Next message: <A HREF="000045.html">[Radartools-dev] Multi-Temporal with relative paths
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#44">[ date ]</a>
+              <a href="thread.html#44">[ thread ]</a>
+              <a href="subject.html#44">[ subject ]</a>
+              <a href="author.html#44">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/radartools-dev">More information about the Radartools-dev
+mailing list</a><br>
+</body></html>

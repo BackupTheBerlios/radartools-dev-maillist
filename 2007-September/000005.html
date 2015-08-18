@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Radartools-dev] RAT plugins
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/radartools-dev/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20RAT%20plugins&In-Reply-To=%3C200709261824.30916.anderl%40fpk.tu-berlin.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000004.html">
+   <LINK REL="Next"  HREF="000006.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Radartools-dev] RAT plugins</H1>
+    <B>Andreas Reigber</B> 
+    <A HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20RAT%20plugins&In-Reply-To=%3C200709261824.30916.anderl%40fpk.tu-berlin.de%3E"
+       TITLE="[Radartools-dev] RAT plugins">anderl at fpk.tu-berlin.de
+       </A><BR>
+    <I>Wed Sep 26 18:24:30 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000004.html">[Radartools-dev] RAT plugins
+</A></li>
+        <LI>Next message: <A HREF="000006.html">[Radartools-dev] RAT plugins
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I agree to all of this. For this topic it will be very important to write also 
+some pages of programming documentation!!! Otherwise this will never be 
+usable. But didn't you mention that you won't develop a lot in the next 
+time ;-)
+
+Something else: In my opinion we should make the developers list public, too. 
+What do you think? In any case, if there are problems we can still go back to 
+an internal one. 
+
+Greetings,
+Anderl
+
+
+
+Am Mittwoch 26 September 2007 schrieb Maxim Neumann:
+&gt;<i> Hello,
+</I>&gt;<i> at the first glance it looks like it should be easy to do.
+</I>&gt;<i>
+</I>&gt;<i> Probably it' s nothing special, but these are just a few points of
+</I>&gt;<i> which I would think:
+</I>&gt;<i> - good definition of plugin modules: i.e. the plugin procedure should
+</I>&gt;<i> accept all the parameters (at least as phantoms) of usual modules,
+</I>&gt;<i> like: /CALLED, /NO_GUI, /ARGUMENTS_STRUCTURE, ..., or something
+</I>&gt;<i> similar. we need to define the common set of arguments, which should
+</I>&gt;<i> be accepted by all modules.
+</I>&gt;<i> - as well as a plugin-specific unnamed structure like
+</I>&gt;<i> PLUGIN_INFO={menu_name=&quot;IDIOT&quot;, menu_position=&quot;insar...&quot;,...} , where
+</I>&gt;<i> menu_position could be an array of positions.
+</I>&gt;<i> - file name and location: e.g. in &quot;rat/plugins/&quot; and in
+</I>&gt;<i> &quot;~/.rat/plugins&quot; , and rat could check this path automatically to load
+</I>&gt;<i> all procedures which are named like e.g. [&quot;rat_plugin_*.sav&quot;,
+</I>&gt;<i> &quot;rat_plugin_*.pro&quot;]. The IDL name of the module function should then
+</I>&gt;<i> also be the same as the file name without the suffix &quot;.pro&quot; or &quot;.sav&quot;.
+</I>&gt;<i> - everything else is only a technical problem of realization.
+</I>&gt;<i> I would suggest to append the plugin modules at first at all
+</I>&gt;<i> menu_positions as provided by the functions, as well as e.g. in the
+</I>&gt;<i> menu &quot;genera/plugins/&quot;, for the case that it was not possible to
+</I>&gt;<i> append it correctly to menu_position.
+</I>&gt;<i> Before constructing the RAT GUI, one has to check the plugin
+</I>&gt;<i> directories for the modules, then adjust the menus, and then to
+</I>&gt;<i> provide some framework to call these plugins.
+</I>&gt;<i> That's almost all, or did I forget something?
+</I>&gt;<i>
+</I>&gt;<i> It looks like an interesting task, I can perhaps also try to construct
+</I>&gt;<i> something workable in the next days.
+</I>&gt;<i> It's of course against the culture of RAT, but it would be nice to
+</I>&gt;<i> have some definitions for module arguments, etc.
+</I>&gt;<i>
+</I>&gt;<i> Tsch&#252;ss,
+</I>&gt;<i> Maxim
+</I>&gt;<i>
+</I>&gt;<i> On 9/25/07, Andreas Reigber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">anderl at fpk.tu-berlin.de</A>&gt; wrote:
+</I>&gt;<i> &gt; Hi,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I hope to find some more time to work on RAT in the next months. One idea
+</I>&gt;<i> &gt; I have is to try to develop some kind of binary plugin interface. I want
+</I>&gt;<i> &gt; to get the possibility to write sav-files, which get found by RAT during
+</I>&gt;<i> &gt; startup and which can then be called somehow through the menue. I don't
+</I>&gt;<i> &gt; know yet whether this is possible with IDL, but I'll check that out.
+</I>&gt;<i> &gt; Background is the possibility of closed-source add-ons, like for example
+</I>&gt;<i> &gt; integrating IDIOT in RAT as an additional module.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Comments and suggestions welcome!
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Greetings,
+</I>&gt;<i> &gt; Anderl
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; --
+</I>&gt;<i> &gt; ----------------------------------------------------------------
+</I>&gt;<i> &gt; Dr. Andreas Reigber           Berlin University of Technology
+</I>&gt;<i> &gt;                               Computer Vision and Remote Sensing
+</I>&gt;<i> &gt; Tel.: ++49-30-314-23276       Franklinstr. 28/29 (FR3-1)
+</I>&gt;<i> &gt; Fax.: ++49-30-314-21104       D-10587 Berlin, Germany
+</I>&gt;<i> &gt; ----------------------------------------------------------------
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Use encrypted email!                       My key ID: 0x279F93EB
+</I>&gt;<i> &gt; Fingerprint:   2B60 05A3 1D17 A873 D000 22BE D72C 65CA 279F 93EB
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; Radartools-dev mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">Radartools-dev at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">https://lists.berlios.de/mailman/listinfo/radartools-dev</A>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Radartools-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">Radartools-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">https://lists.berlios.de/mailman/listinfo/radartools-dev</A>
+</I>
+
+
+-- 
+----------------------------------------------------------------
+Dr. Andreas Reigber           Berlin University of Technology
+                              Computer Vision and Remote Sensing
+Tel.: ++49-30-314-23276       Franklinstr. 28/29 (FR3-1)
+Fax.: ++49-30-314-21104       D-10587 Berlin, Germany
+----------------------------------------------------------------
+
+Use encrypted email!                       My key ID: 0x279F93EB
+Fingerprint:   2B60 05A3 1D17 A873 D000 22BE D72C 65CA 279F 93EB
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000004.html">[Radartools-dev] RAT plugins
+</A></li>
+	<LI>Next message: <A HREF="000006.html">[Radartools-dev] RAT plugins
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/radartools-dev">More information about the Radartools-dev
+mailing list</a><br>
+</body></html>

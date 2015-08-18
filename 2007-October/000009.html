@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Radartools-dev] RAT plugins
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/radartools-dev/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20RAT%20plugins&In-Reply-To=%3Cd6a8b87d0710010214w55a6963cycf8f8c5a3a54bfb%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000010.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Radartools-dev] RAT plugins</H1>
+    <B>Maxim Neumann</B> 
+    <A HREF="mailto:radartools-dev%40lists.berlios.de?Subject=Re%3A%20%5BRadartools-dev%5D%20RAT%20plugins&In-Reply-To=%3Cd6a8b87d0710010214w55a6963cycf8f8c5a3a54bfb%40mail.gmail.com%3E"
+       TITLE="[Radartools-dev] RAT plugins">maxn at cs.tu-berlin.de
+       </A><BR>
+    <I>Mon Oct  1 11:14:02 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000010.html">[Radartools-dev] Block processing updates
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#9">[ date ]</a>
+              <a href="thread.html#9">[ thread ]</a>
+              <a href="subject.html#9">[ subject ]</a>
+              <a href="author.html#9">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi rat-dev's,
+
+I also agree on everything as you, Anderl and Steph, said:
++ more docu + some standards + simplification of module writing
+(object+procedural) + radical changes at first into /tags
+This all is of course reasonable and I will also try to contribute
+some parts, as the time will allow.
+
+An update to plugins:
+- I put the plugins into an extra svn-brunch
+- additional required keyword for plugins: &quot;/help&quot;, so that it is
+possible to obtain some info on the plugin from the help-menu. For
+more details, see the example plugin &quot;rat_plugin_quote.pro&quot;.
+- therefore, if you are writing a plugin, you MUST serve appropriately
+these two keywords &quot;HELP&quot;, and &quot;PLUGIN_INFO&quot;.
+
+Viele Gruesse,
+Maxim
+
+
+On 9/27/07, Andreas Reigber &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">anderl at fpk.tu-berlin.de</A>&gt; wrote:
+&gt;<i> Hi guys,
+</I>&gt;<i>
+</I>&gt;<i> I think Stephane should check in his RAT2 version as a sperate tree, maybe
+</I>&gt;<i> in 'tags'. Then we all can test it and communicate our opinion. Btw., Steph,
+</I>&gt;<i> how you can resize the main window with recalculating the preview????
+</I>&gt;<i>
+</I>&gt;<i> I really believe that we should slowly start to develop some programming
+</I>&gt;<i> documentation. One for modules, one for plugins and probably one for object
+</I>&gt;<i> oriented modules. Without some agreement on programming standard soon
+</I>&gt;<i> everything will be a mess.
+</I>&gt;<i>
+</I>&gt;<i> I am also thinking about to simplify the modules a bit by grouping some of the
+</I>&gt;<i> standard commands into subroutines. This will include to read the new file
+</I>&gt;<i> structure from the output file instead of setting it by hand. This caused so
+</I>&gt;<i> much hassle for me in the past...
+</I>&gt;<i>
+</I>&gt;<i> Greetings,
+</I>&gt;<i> Anderl
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> ----------------------------------------------------------------
+</I>&gt;<i> Dr. Andreas Reigber           Berlin University of Technology
+</I>&gt;<i>                               Computer Vision and Remote Sensing
+</I>&gt;<i> Tel.: ++49-30-314-23276       Franklinstr. 28/29 (FR3-1)
+</I>&gt;<i> Fax.: ++49-30-314-21104       D-10587 Berlin, Germany
+</I>&gt;<i> ----------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Use encrypted email!                       My key ID: 0x279F93EB
+</I>&gt;<i> Fingerprint:   2B60 05A3 1D17 A873 D000 22BE D72C 65CA 279F 93EB
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Radartools-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">Radartools-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/radartools-dev">https://lists.berlios.de/mailman/listinfo/radartools-dev</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000010.html">[Radartools-dev] Block processing updates
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#9">[ date ]</a>
+              <a href="thread.html#9">[ thread ]</a>
+              <a href="subject.html#9">[ subject ]</a>
+              <a href="author.html#9">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/radartools-dev">More information about the Radartools-dev
+mailing list</a><br>
+</body></html>
